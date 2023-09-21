@@ -1,0 +1,8 @@
+excluded:
+  - LogRocket/GeneratedProtobufs
+disabled_rules:
+  - type_body_length
+identifier_name:
+  min_length: 0
+cyclomatic_complexity:
+  ignores_case_statements: true

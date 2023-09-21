@@ -1,0 +1,11 @@
+framework module LogRocket {
+  umbrella header "LogRocket.h"
+
+  export *
+  module * { export * }
+}
+
+module LogRocket.Swift {
+    header "LogRocket-Swift.h"
+    requires objc
+}

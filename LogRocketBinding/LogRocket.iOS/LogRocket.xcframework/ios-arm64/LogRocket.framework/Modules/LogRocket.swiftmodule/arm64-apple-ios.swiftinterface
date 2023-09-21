@@ -1,0 +1,285 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
+// swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name LogRocket
+import CommonCrypto
+import Foundation
+@_exported import LogRocket
+import NaturalLanguage
+import Swift
+import SwiftUI
+import UIKit
+import WebKit
+import _Concurrency
+import libkern
+import os
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class LRMarkerUIView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func didMoveToWindow()
+  @objc deinit
+}
+@available(iOS 13.0, *)
+public struct LRMarkerSwiftView : SwiftUI.UIViewRepresentable {
+  public init(_ customize: @escaping (LogRocket.LRMarkerUIView) -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) public func makeUIView(context _: SwiftUI.UIViewRepresentableContext<LogRocket.LRMarkerSwiftView>) -> LogRocket.LRMarkerUIView
+  @_Concurrency.MainActor(unsafe) public func updateUIView(_ view: LogRocket.LRMarkerUIView, context _: SwiftUI.UIViewRepresentableContext<LogRocket.LRMarkerSwiftView>)
+  public typealias Body = Swift.Never
+  public typealias Coordinator = Swift.Void
+  public typealias UIViewType = LogRocket.LRMarkerUIView
+}
+@available(iOS 13.0, *)
+extension SwiftUI.View {
+  public func injectMarkerView(_ customize: @escaping (LogRocket.LRMarkerUIView) -> Swift.Void) -> some SwiftUI.View
+  
+}
+@available(iOS 13.0, *)
+extension SwiftUI.View {
+  public func lrAddClass(_ viewSelector: Swift.String, selfString: Swift.String? = nil) -> some SwiftUI.View
+  
+  public func lrHide() -> some SwiftUI.View
+  
+  public func lrShow() -> some SwiftUI.View
+  
+}
+@objc(LRORequestSanitizer) public protocol RequestSanitizer {
+  @objc func sanitize(request: LogRocket.Request) -> LogRocket.Request?
+}
+@_hasMissingDesignatedInitializers @objc(LROResponseBuilder) public class ResponseBuilder : ObjectiveC.NSObject {
+  @objc public var arsonBody: Swift.String?
+  @objc public var body: Foundation.Data?
+  @objc public var headers: [Swift.String : Swift.String]
+  @objc public var method: Swift.String
+  @objc final public let reqID: Swift.Int
+  @objc public var status: Swift.Int
+  @objc public var url: Swift.String
+  @objc public var duration: Swift.Double
+  @objc public func capture() -> Swift.Bool
+  @objc deinit
+}
+@objc(LROCaptureMessageBuilder) public class CaptureMessageBuilder : ObjectiveC.NSObject {
+  @objc public init(_ message: Swift.String)
+  @objc(putTagString:value:) public func putTag(_ key: Swift.String, _ value: Swift.String) -> LogRocket.CaptureMessageBuilder
+  @objc(putTagBoolean:value:) public func putTag(_ key: Swift.String, _ value: Swift.Bool) -> LogRocket.CaptureMessageBuilder
+  @objc(putTagDouble:value:) public func putTag(_ key: Swift.String, _ value: Swift.Double) -> LogRocket.CaptureMessageBuilder
+  @objc(putTagInt:value:) public func putTag(_ key: Swift.String, _ value: Swift.Int) -> LogRocket.CaptureMessageBuilder
+  @objc(putExtraString:value:) public func putExtra(_ key: Swift.String, _ value: Swift.String) -> LogRocket.CaptureMessageBuilder
+  @objc(putExtraBoolean:value:) public func putExtra(_ key: Swift.String, _ value: Swift.Bool) -> LogRocket.CaptureMessageBuilder
+  @objc(putExtraDouble:value:) public func putExtra(_ key: Swift.String, _ value: Swift.Double) -> LogRocket.CaptureMessageBuilder
+  @objc(putExtraInt:value:) public func putExtra(_ key: Swift.String, _ value: Swift.Int) -> LogRocket.CaptureMessageBuilder
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(LROProxyConfigurationBuilder) public class ProxyConfigurationBuilder : ObjectiveC.NSObject {
+  @objc public func proxyUsername(_ username: Swift.String)
+  @objc public func proxyPassword(_ password: Swift.String)
+  @objc public func httpEnable(_ enable: Swift.Bool)
+  @objc public func httpProxy(_ proxy: Swift.String)
+  @objc public func httpPort(_ port: Swift.Int)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(LROLogHandler) public class LogHandler : ObjectiveC.NSObject {
+  @objc public class func swift_load()
+  @objc deinit
+}
+public let systemViews: [Swift.String]
+@_hasMissingDesignatedInitializers @objc(LROApplicationLifecycleObserver) public class ApplicationLifecycleObserver : ObjectiveC.NSObject, LogRocket.LifecycleDelegate {
+  @objc public func viewControllerDidAppear(_ viewController: UIKit.UIViewController)
+  @objc public func viewControllerDidDisappear(_ viewController: UIKit.UIViewController)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(LROSDK) public class SDK : ObjectiveC.NSObject {
+  @objc public static func initializeInternal(configuration: LogRocket.Configuration) -> Swift.Bool
+  @objc public static func initialize(configuration: LogRocket.Configuration)
+  @objc public static func addLog(level: Swift.String, args: [Swift.String])
+  @objc public static func captureException(errorMessage: Swift.String, errorType: Swift.String, exceptionType: Swift.String, stackTrace: Swift.String)
+  @objc public static func captureMessage(_ builder: LogRocket.CaptureMessageBuilder)
+  @objc public static func captureReduxAction(action: Swift.String, storeId: Foundation.NSNumber, duration: Foundation.NSNumber, stateDelta: Swift.String, count: Foundation.NSNumber)
+  @objc public static func captureReduxInitialState(state: Swift.String, storeId: Foundation.NSNumber)
+  @objc public static func getSessionURL(_ completion: @escaping (Swift.String) -> Swift.Void)
+  @objc public static func identify(userID: Swift.String, userInfo: [Swift.String : Swift.String]? = nil)
+  @objc public static func identifyAsAnonymous(userID: Swift.String, userInfo: [Swift.String : Swift.String]? = nil)
+  @objc public static func newRequestBuilder() -> LogRocket.RequestBuilder?
+  @objc public static func pauseViewCapture()
+  @objc public static func endSession()
+  @objc public static func shutdown()
+  @objc public static func hardShutdown()
+  @objc public static func track(_ builder: LogRocket.CustomEventBuilder)
+  @objc public static func tagPage(_ relativePage: Swift.String)
+  @objc public static func unpauseViewCapture()
+  @objc public static func viewControllerDidAppear(_ controller: UIKit.UIViewController)
+  @objc public static func webViewInit(_ webView: WebKit.WKWebView, _ request: Foundation.URLRequest)
+  @objc public static func webViewRemove(_ webView: WebKit.WKWebView)
+  @objc public static func viewControllerDidDisappear(_ controller: UIKit.UIViewController)
+  @objc deinit
+}
+@objc(LROLifecycleDelegate) public protocol LifecycleDelegate {
+  @objc func viewControllerDidAppear(_: UIKit.UIViewController)
+  @objc func viewControllerDidDisappear(_: UIKit.UIViewController)
+}
+@objc(LROCustomEventBuilder) public class CustomEventBuilder : ObjectiveC.NSObject {
+  @objc public init(_ name: Swift.String)
+  @objc public func putRevenue(_ value: Swift.Double)
+  @objc(putString:value:) public func put(_ key: Swift.String, _ value: Swift.String)
+  @objc(putStringArray:value:) public func put(_ key: Swift.String, _ value: [Swift.String])
+  @objc(putDouble:value:) public func put(_ key: Swift.String, _ value: Swift.Double)
+  @objc(putDoubleArray:value:) public func put(_ key: Swift.String, _ value: [Swift.Double])
+  @objc(putBool:value:) public func put(_ key: Swift.String, _ value: Swift.Bool)
+  @objc(putBoolArray:value:) public func put(_ key: Swift.String, _ value: [Swift.Bool])
+  @objc deinit
+}
+public class AtomicInt {
+  public var value: Swift.Int {
+    get
+    set
+  }
+  public init(initialValue: Swift.Int)
+  @discardableResult
+  public func compareAndSet(expect: Swift.Int, newValue: Swift.Int) -> Swift.Bool
+  @discardableResult
+  public func incrementAndGet() -> Swift.Int
+  @discardableResult
+  public func incrementAndGet(by: Swift.Int) -> Swift.Int
+  @discardableResult
+  public func decrementAndGet() -> Swift.Int
+  @discardableResult
+  public func decrementAndGet(by: Swift.Int) -> Swift.Int
+  @discardableResult
+  public func getAndIncrement() -> Swift.Int
+  @discardableResult
+  public func getAndDecrement() -> Swift.Int
+  @discardableResult
+  public func getAndSet(newValue: Swift.Int) -> Swift.Int
+  @objc deinit
+}
+@objc(LROResponseSanitizer) public protocol ResponseSanitizer {
+  @objc func sanitize(response: LogRocket.Response) -> LogRocket.Response?
+}
+public enum LookbackType : Swift.String {
+  case NONE
+  case LIMITED
+  case FULL
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc(LROLogger) public class Logger : ObjectiveC.NSObject {
+  @objc public static func debug(message: Swift.String)
+  @objc public static func info(message: Swift.String)
+  @objc public static func error(message: Swift.String)
+  @objc public static func warning(message: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(LROConfiguration) public class Configuration : ObjectiveC.NSObject {
+  final public let appID: Swift.String
+  @objc public var serverURL: Swift.String
+  @objc public var allowTags: Foundation.NSMutableSet
+  @objc public var redactionTags: Foundation.NSMutableSet
+  @objc public var inputRedactionTags: Foundation.NSMutableSet
+  @objc public var textSanitizer: LogRocket.SanitizerType
+  @objc public var redactMenus: Swift.Bool
+  @objc public var viewScanningEnabled: Swift.Bool
+  @objc public var networkCaptureEnabled: Swift.Bool
+  @objc public var logCaptureEnabled: Swift.Bool
+  @objc public var requestSanitizer: LogRocket.RequestSanitizer?
+  @objc public var responseSanitizer: LogRocket.ResponseSanitizer?
+  @objc public var registerTouchHandlers: Swift.Bool
+  @objc public var scaleFactor: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc public var ipCaptureEnabled: Swift.Bool
+  @objc public var persistenceEnabled: Swift.Bool
+  @objc public var bufferTimeoutSeconds: Swift.UInt32
+  @objc public var uploadIntervalMs: Swift.Int
+  @objc public var proxyConfiguration: LogRocket.ProxyConfigurationBuilder
+  @objc public var experimentalBidiCapture: Swift.Bool
+  @objc public init(appID: Swift.String)
+  convenience public init(appID: Swift.String, serverURL: Swift.String = "https://r.ingest-lr.com/i", allowTags: [Swift.String] = [], redactionTags: [Swift.String] = [], inputRedactionTags: [Swift.String] = [], textSanitizer: LogRocket.SanitizerType = .none, redactMenus: Swift.Bool = false, viewScanningEnabled: Swift.Bool = true, networkCaptureEnabled: Swift.Bool = true, logCaptureEnabled: Swift.Bool = true, requestSanitizer: LogRocket.RequestSanitizer? = nil, responseSanitizer: LogRocket.ResponseSanitizer? = nil, registerTouchHandlers: Swift.Bool = true, ipCaptureEnabled: Swift.Bool = true, scaleFactor: CoreGraphics.CGFloat? = nil, persistenceEnabled: Swift.Bool = true, bufferTimeoutSeconds: Swift.UInt32 = 60, uploadIntervalMs: Swift.Int = 30000, proxyConfigurationBuilder: LogRocket.ProxyConfigurationBuilder? = nil, experimentalBidiCapture: Swift.Bool = false)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(LRORequest) public class Request : ObjectiveC.NSObject {
+  @objc public var arsonBody: Swift.String?
+  @objc public var body: Foundation.Data?
+  @objc public var headers: [Swift.String : Swift.String]?
+  @objc final public let method: Swift.String
+  @objc final public let reqID: Swift.Int
+  @objc public var url: Swift.String?
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers public class WebViewObserver : ObjectiveC.NSObject, WebKit.WKScriptMessageHandler {
+  @objc public func userContentController(_: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
+  public func observe(_ webView: WebKit.WKWebView, _ request: Foundation.URLRequest)
+  public func remove(_ toRemove: WebKit.WKWebView)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(LROScrollTracker) @_Concurrency.MainActor(unsafe) public class LogRocketScrollTracker : ObjectiveC.NSObject, UIKit.UIScrollViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc public func scrollViewWillBeginDragging(_ view: UIKit.UIScrollView)
+  @_Concurrency.MainActor(unsafe) @objc public func scrollViewDidEndDecelerating(_ view: UIKit.UIScrollView)
+  @_Concurrency.MainActor(unsafe) @objc public func scrollViewDidEndDragging(_ view: UIKit.UIScrollView, willDecelerate decelerate: Swift.Bool)
+  @objc override dynamic public init()
+  @objc deinit
+}
+public class AtomicBool {
+  public var value: Swift.Bool {
+    get
+    set
+  }
+  public init(initialValue: Swift.Bool)
+  @discardableResult
+  public func compareAndSet(expect: Swift.Bool, newValue: Swift.Bool) -> Swift.Bool
+  public func getAndSet(newValue: Swift.Bool) -> Swift.Bool
+  @objc deinit
+}
+@objc(LROSanitizerType) public enum SanitizerType : Swift.Int {
+  case excluded
+  case none
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers @objc(LROCustomEvent) public class CustomEvent : ObjectiveC.NSObject {
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(LROResponse) public class Response : ObjectiveC.NSObject {
+  @objc public var arsonBody: Swift.String?
+  @objc public var body: Foundation.Data?
+  @objc public var headers: [Swift.String : Swift.String]?
+  @objc final public let method: Swift.String
+  @objc final public let reqID: Swift.Int
+  @objc final public let status: Swift.UInt32
+  @objc public var url: Swift.String?
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(LRORequestBuilder) public class RequestBuilder : ObjectiveC.NSObject {
+  @objc public var arsonBody: Swift.String?
+  @objc public var body: Foundation.Data?
+  @objc public var headers: [Swift.String : Swift.String]
+  @objc public var method: Swift.String?
+  @objc final public let reqID: Swift.Int
+  @objc public var url: Swift.String?
+  @objc public func capture() -> LogRocket.ResponseBuilder?
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(LROTouchShim) @_Concurrency.MainActor(unsafe) public class TouchShim : UIKit.UIGestureRecognizer, UIKit.UIGestureRecognizerDelegate {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func canBePrevented(by _: UIKit.UIGestureRecognizer) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func canPrevent(_: UIKit.UIGestureRecognizer) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func ignore(_: UIKit.UITouch, for _: UIKit.UIEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func ignore(_: UIKit.UIPress, for _: UIKit.UIPressesEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func shouldRequireFailure(of _: UIKit.UIGestureRecognizer) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func shouldBeRequiredToFail(by _: UIKit.UIGestureRecognizer) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func touchesBegan(_ touches: Swift.Set<UIKit.UITouch>, with _: UIKit.UIEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func touchesCancelled(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func touchesEnded(_ touches: Swift.Set<UIKit.UITouch>, with _: UIKit.UIEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func touchesMoved(_ touches: Swift.Set<UIKit.UITouch>, with _: UIKit.UIEvent)
+  @_Concurrency.MainActor(unsafe) @objc public func gestureRecognizer(_: UIKit.UIGestureRecognizer, shouldRecognizeSimultaneouslyWith _: UIKit.UIGestureRecognizer) -> Swift.Bool
+  @objc deinit
+}
+extension LogRocket.LookbackType : Swift.Equatable {}
+extension LogRocket.LookbackType : Swift.Hashable {}
+extension LogRocket.LookbackType : Swift.RawRepresentable {}
+extension LogRocket.SanitizerType : Swift.Equatable {}
+extension LogRocket.SanitizerType : Swift.Hashable {}
+extension LogRocket.SanitizerType : Swift.RawRepresentable {}
