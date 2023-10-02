@@ -7,6 +7,43 @@
   <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
   -->
   <!-- Change the visibility of a class -->
-<attr path="/api/package[@name='com.logrocket.protobuf']/class[@name='SmallSortedMap']" name="visibility">public</attr>
+
+
+    <remove-node path="/api/package[@name='lr']/class[@name='Shared']" />
+    <remove-node path="/api/package[@name='lr.utils']/class[@name='Utils']" />
+    <remove-node path="/api/package[@name='lr.redux']/class[@name='Redux']" />
+    <remove-node path="/api/package[@name='lr.performance']/class[@name='Performance']" />
+    <remove-node path="/api/package[@name='lr.network']/class[@name='Network']" />
+    <remove-node path="/api/package[@name='lr.mobile']/class[@name='Mobile']" />
+    <remove-node path="/api/package[@name='lr.metrics']/class[@name='Metrics']" />
+    <remove-node path="/api/package[@name='lr.guide']/class[@name='Guide']" />
+    <remove-node path="/api/package[@name='lr.filter']/class[@name='Filter']" />
+    <remove-node path="/api/package[@name='lr.feedback']/class[@name='Feedback']" />
+    <remove-node path="/api/package[@name='lr.error']/class[@name='Error']" />
+    <remove-node path="/api/package[@name='lr.core']/class[@name='Core']" />
+    <remove-node path="/api/package[@name='lr.android']/class[@name='Android']" />
+    <remove-node path="/api/package[@name='lr.android.canvas']/class[@name='Canvas']" />
+
+
+    <remove-node path="/api/package[@name='com.logrocket.protobuf']/class[@name='UnmodifiableLazyStringList']" />
+    <remove-node path="/api/package[@name='com.logrocket.protobuf']/class[@name='LazyStringArrayList']" />
+    <remove-node path="/api/package[@name='com.logrocket.protobuf']/class[@name='Internal']" />
+    <remove-node path="/api/package[@name='com.logrocket.protobuf']/class[@name='GeneratedMessageLite']" />
+    <remove-node path="/api/package[@name='com.logrocket.protobuf']/class[@name='AbstractMessageLite']" />
+    <remove-node path="/api/package[@name='com.logrocket.protobuf']/class[@name='CodedOutputStream']" />
+    <remove-node path="/api/package[@name='com.logrocket.protobuf']/class[@name='ByteString']" />
+    <remove-node path="/api/package[@name='com.logrocket.protobuf']/class[@name='AbstractParser']" />
+
+    <remove-node path="/api/package[@name='com.logrocket.core.network']/class[@name='NullRequestBuilder']" />
+
+    <remove-node path="/api/package[@name='com.logrocket.core.filter']/class[@name='ErrorStateRule']" />
+    <remove-node path="/api/package[@name='com.logrocket.core.filter']/class[@name='SelectorUtils']" />
+    <remove-node path="/api/package[@name='com.logrocket.core.filter']/class[@name='Trigger']" />
+    <remove-node path="/api/package[@name='com.logrocket.core.filter']/class[@name='Rule']" />
+
+    <remove-node path="/api/package[@name='com.logrocket.core.persistence']/class[@name='MergedEventBatch']" />
+
+    <remove-node path="/api/package[@name='com.logrocket.core']/class[@name='Configuration']/constructor" />
+    <constructor access="public" />
 </metadata>
 

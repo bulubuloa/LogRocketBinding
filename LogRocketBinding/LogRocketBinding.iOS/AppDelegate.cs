@@ -2,6 +2,7 @@
 using Foundation;
 using UIKit;
 using NativeLibrary;
+using Xamarin.Forms;
 
 namespace LogRocketBinding.iOS
 {
@@ -21,12 +22,22 @@ namespace LogRocketBinding.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            Xamarin.Forms.Internals.Registrar.Registered.Register(typeof(ContentPage), typeof(ContentPageRenderer));
+
             LoadApplication(new App());
-            LROSDK.InitializeWithConfiguration(new LROConfiguration("x5oe4u/omnicasa"));
+            LROSDK.InitializeWithConfiguration(new LROConfiguration(new NSString("koh7g6/ewn-mobile-dev")));
             var userIdentity = new NSMutableDictionary<NSString, NSObject>();
-            userIdentity.Add(new NSString($"name"), new NSString($"hoang-omnicasa"));
-            userIdentity.Add(new NSString($"email"), new NSString($"hoangqs@omnicasa.com"));
-            LROSDK.IdentifyWithUserID("hoangqs", userIdentity);
+            userIdentity.Add(new NSString($"name"), new NSString($"Quach Hoang"));
+            userIdentity.Add(new NSString($"email"), new NSString($"hoangquach@kms-technology.com"));
+            LROSDK.IdentifyWithUserID("HoangQuach-KMS", userIdentity);
+
+            // LROSDK.TagPage("FirstPage");
+
+            LROLogger.DebugWithMessage("Finished FinishedLaunching");
+
+            
+
+
             return base.FinishedLaunching(app, options);
         }
     }
