@@ -36,6 +36,11 @@ namespace NativeLibrary
         [Static]
         [Export("track:")]
         void Track(LROCustomEventBuilder customEventBuilder);
+
+        // + (void)captureMessage:(LROCaptureMessageBuilder * _Nonnull)builder;
+        [Static]
+        [Export("captureMessage:")]
+        void CaptureMessage(LROCaptureMessageBuilder captureMessageBuilder);
     }
 
     // @interface LROLogger : NSObject
@@ -74,6 +79,23 @@ namespace NativeLibrary
         // - (void)putBool:(NSString * _Nonnull)key value:(BOOL)value;
         [Export("putBool:value:")]
         void PutBool(string key, bool value);
+
+        [Export("init:")]
+        [DesignatedInitializer]
+        IntPtr Constructor(NSString eventName);
+    }
+
+    // @interface LROCaptureMessageBuilder : NSObject
+    [BaseType(typeof(NSObject))]
+    public interface LROCaptureMessageBuilder
+    {
+        // - (void)putTagString:(NSString * _Nonnull)key value:(NSString * _Nonnull)value;
+        [Export("putTagString:value:")]
+        void PutTagString(string key, string value);
+
+        // - (void)putExtraString:(NSString * _Nonnull)key value:(double)value;
+        [Export("putExtraString:value:")]
+        void PutExtraString(string key, string value);
 
         [Export("init:")]
         [DesignatedInitializer]
